@@ -135,9 +135,6 @@ variable_set('mei_core_quotable-quote3', $edits['quotation3']);
 if(isset($edits['attribution3'])){
 variable_set('mei_core_quotable-att3', $edits['attribution3']);
 }*/
-}
-}
-}
 
 
 /** function drupal_add_js('rotator.js'){
