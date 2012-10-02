@@ -72,6 +72,7 @@ function quotator_block_configure($delta) {
 					'#size' => 100,
 					'#maxlength' => 200,
 					'#default_value' => variable_get('deep_thoughts'),
+				),
 				'a' => array(
 					'#type' => 'textfield',
 					'#title' => t('Attribution'),
@@ -79,8 +80,8 @@ function quotator_block_configure($delta) {
 					'#size' => 100,
 					'#maxlength' => 200,
 					'#default_value' => variable_get('author'),
-					),
 				),
+				
 			);
 			break;
 		default:
