@@ -96,11 +96,11 @@ function quotator_block_save($delta = 'myquote', $edit = array()) {
 	if($delta == 'myquote'){
 		if(isset($edit) ) {	
 		//do some validation, set global variables in the db
-			if(isset($edit['quotable']['a'])){
-				variable_set('deep_thoughts', $edit['quotable']['q']);
+			if(isset($edit['q'])){
+				variable_set('deep_thoughts', $edit['q']);
 			}
-			if(isset($edit['quotable']['q'])){
-				variable_set('author', $edit['quotable']['a']);
+			if(isset($edit['a'])){
+				variable_set('author', $edit['a']);
 			}
 		}
 	}
@@ -114,113 +114,4 @@ function quotator_block_save($delta = 'myquote', $edit = array()) {
 
 
 
-/**$attribution = $edits['attribution1'];
-if(isset($edits['reference']) && !empty($edits['reference'])) {
-check for existing link
-$test = strpos($attribution, '<');
-strip old link
-if ($test != FALSE) {
-$attribution = strstr($attribution, '<', 'before_needle');
-}
-load the node and get the title to prep the link on save, rather than view
-$node = node_load($edits['reference']);
-$link = l($node->title, 'node/' . $node->nid);
-$attribution .= " " . $link;
-variable_set('mei_core_quotable-nid', $edits['reference']);
-} else {
-variable_del('mei_core_quotable-nid');
-}
-variable_set('mei_core_quotable-att', $attribution);
-}
-}
-if(isset($edits['quotation2'])){
-variable_set('mei_core_quotable-quote2', $edits['quotation2']);
-}
-if(isset($edits['attribution2'])){
-variable_set('mei_core_quotable-att2', $edits['attribution2']);
-}
-if(isset($edits['quotation3'])){
-variable_set('mei_core_quotable-quote3', $edits['quotation3']);
-}
-if(isset($edits['attribution3'])){
-variable_set('mei_core_quotable-att3', $edits['attribution3']);
-}*/
 
-
-/** function drupal_add_js('rotator.js'){
-$javascript = &drupal_static(__FUNCTION__, array());
-
-// Construct the options, taking the defaults into consideration.
-if (isset($options)) {
-if (!is_array($options)) {
-$options = array('type' => $options);
-}
-}
-else {
-$options = array();
-}
-$options += drupal_js_defaults($data);
-
-// Preprocess can only be set if caching is enabled.
-$options['preprocess'] = $options['cache'] ? $options['preprocess'] : FALSE;
-
-// Tweak the weight so that files of the same weight are included in the
-// order of the calls to drupal_add_js().
-$options['weight'] += count($javascript) / 1000;
-
-if (isset($data)) {
-// Add jquery.js and drupal.js, as well as the basePath setting, the
-// first time a JavaScript file is added.
-if (empty($javascript)) {
-// url() generates the prefix using hook_url_outbound_alter(). Instead of
-// running the hook_url_outbound_alter() again here, extract the prefix
-// from url().
-url('', array('prefix' => &$prefix));
-$javascript = array(
-'settings' => array(
-'data' => array(
-array('basePath' => base_path()),
-array('pathPrefix' => empty($prefix) ? '' : $prefix),
-),
-'type' => 'setting',
-'scope' => 'header',
-'group' => JS_LIBRARY,
-'every_page' => TRUE,
-'weight' => 0,
-),
-'misc/drupal.js' => array(
-'data' => 'misc/drupal.js',
-'type' => 'file',
-'scope' => 'header',
-'group' => JS_LIBRARY,
-'every_page' => TRUE,
-'weight' => -1,
-'preprocess' => TRUE,
-'cache' => TRUE,
-'defer' => FALSE,
-),
-);
-// Register all required libraries.
-drupal_add_library('system', 'jquery', TRUE);
-drupal_add_library('system', 'jquery.once', TRUE);
-}
-
-switch ($options['type']) {
-case 'setting':
-// All JavaScript settings are placed in the header of the page with
-// the library weight so that inline scripts appear afterwards.
-$javascript['settings']['data'][] = $data;
-break;
-
-case 'inline':
-$javascript[] = $options;
-break;
-
-default: // 'file' and 'external'
-// Local and external files must keep their name as the associative key
-// so the same JavaScript file is not added twice.
-$javascript[$options['data']] = $options;
-}
-}
-return $javascript;
-}*/
