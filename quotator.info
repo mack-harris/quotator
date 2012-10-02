@@ -1,0 +1,3 @@
+name = Quotator
+description = This module should create a simple quote display that will allow the user to rotate between several quotes or other text.
+core = 7.x
