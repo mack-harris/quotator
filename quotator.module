@@ -13,7 +13,7 @@ function quotator_block_info() {
 
 //Implements hook_block_view
 function quotator_block_view($delta) {
-	$block = array();
+	$blocks = array();
 
 	switch ($delta){
 		case 'myquote':
@@ -25,7 +25,7 @@ function quotator_block_view($delta) {
 		default:
 			break;
 	}
-	return $block;
+	return $blocks;
 }
 
 /**function drupalmodule_block_configure($delta) {
@@ -69,7 +69,7 @@ function quotator_block_configure($delta) {
 					'#description' => t('Enter your quote.'),
 					'#size' => 100,
 					'#maxlength' => 200,
-					'#default_value' => variable_get($deep_thoughts, ''),
+					'#default_value' => variable_get('q'),
 				),
 				$form['quotable']['a'] = array(
 					'#type' => 'textfield',
@@ -77,7 +77,7 @@ function quotator_block_configure($delta) {
 					'#description' => t('Enter your attribution.'),
 					'#size' => 100,
 					'#maxlength' => 200,
-					'#default_value' => variable_get($author, ''),
+					'#default_value' => variable_get('a'),
 				),
 				
 			);
@@ -95,12 +95,13 @@ function quotator_block_save($delta = 'myquote', $edit = array()) {
 		if(isset($edit) ) {	
 		//do some validation, set global variables in the db
 			if(isset($edit['quotable']['q'])){
-				variable_set($deep_thoughts, $edit['quotable']['q']);
+				variable_set('q', $edit['quotable']['q']);
 			}
 			if(isset($edit['quotable']['a'])){
-				variable_set($author, $edit['quotable']['a']);
+				variable_set('a', $edit['quotable']['a']);
 			}
 		}
+		//if the edit isn't being set, this should pop up an alert box.
 		else{
 		 drupal_add_js('jQuery(document).ready(function () { alert("You broke it."); });', 'inline');
 		}
