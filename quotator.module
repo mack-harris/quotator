@@ -1,6 +1,6 @@
 <?php
 
-function drupalmodule_block_info() {
+function quotator_block_info() {
 	$blocks ['myquote'] = array(
 		'info' => t('Displays a quote rotator.'),
 		'cache' => DRUPAL_CACHE_PER_ROLE,
@@ -9,7 +9,7 @@ function drupalmodule_block_info() {
 	return $blocks;
 }
 
-function drupalmodule_block_view($delta) {
+function quotator_block_view($delta) {
 	$block = array();
 
 	switch ($delta){
@@ -49,7 +49,7 @@ break;
 return $form;
 }*/
 
-function drupalmodule_block_configure($delta) {
+function quotator_block_configure($delta) {
 	$form = array();
 	switch($delta){
 		case 'myquote':
@@ -87,7 +87,7 @@ function drupalmodule_block_configure($delta) {
 
 //Implements hook_block_save()
 
-function drupalmodule_block_save($delta, $edits = array()) {
+function quotator_block_save($delta, $edits = array()) {
 	if($delta == 'myquote'){
 		if(isset($edits) ){
 		//do some validation and set global variables in the db
