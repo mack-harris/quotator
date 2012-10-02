@@ -60,7 +60,7 @@ function quotator_block_configure($delta) {
 				'#collapsible' => FALSE,
 
 
-				'q' => array(
+				$q = array(
 					'#type' => 'textfield',
 					'#title' => t('Quote'),
 					'#description' => t('Enter your quote.'),
@@ -69,7 +69,7 @@ function quotator_block_configure($delta) {
 					'#default_value' => variable_get('deep_thoughts'),
 				),
 
-				'a' => array(
+				$a => array(
 					'#type' => 'textfield',
 					'#title' => t('Attribution'),
 					'#description' => t('Enter your attribution.'),
