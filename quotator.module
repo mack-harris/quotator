@@ -58,10 +58,10 @@ function quotator_block_configure($delta) {
 	$form = array();
 	switch($delta){
 		case 'myquote':
-			$form['#tree'] = TRUE;
 			$form['quotable'] = array(
 				'#type' => 'fieldset',
 				'#title' => t('Quotable'),
+				'#tree' => TRUE,
 				'#collapsible' => FALSE,
 
 
