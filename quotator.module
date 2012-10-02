@@ -100,6 +100,7 @@ function quotator_block_save($delta = 'myquote', $edit = array()) {
 			if(isset($edit['quotable']['a'])){
 				variable_set($author, $edit['quotable']['a']);
 			}
+		}
 		else{
 		 drupal_add_js('jQuery(document).ready(function () { alert("You broke it."); });', 'inline');
 		}
