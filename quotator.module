@@ -54,6 +54,8 @@ return $form;
 //Implements hook_block_configure
 function quotator_block_configure($delta) {
 	$form = array();
+	$deep_thoughts = '';
+	$author = '';
 	switch($delta){
 		case 'myquote':
 			$form['quotable'] = array(
