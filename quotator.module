@@ -15,7 +15,7 @@ function quotator_block_view($delta) {
 	switch ($delta){
 		case 'myquote':
 			$quotation = variable_get('deep_thoughts');
-			$attribution = variable_get('author');
+			$author = variable_get('author');
 			$block['subject'] = t('Quotable quotes');
 			//Javascript goes in 'content', I would think.
 			//drupal_add_js('rotator.js');
@@ -60,22 +60,21 @@ function quotator_block_configure($delta) {
 				'#collapsible' => FALSE,
 
 
-				$q = array(
+				'q' => array(
 					'#type' => 'textfield',
 					'#title' => t('Quote'),
 					'#description' => t('Enter your quote.'),
 					'#size' => 100,
 					'#maxlength' => 200,
 					'#default_value' => variable_get('deep_thoughts'),
-				),
-
-				$a = array(
-					'#type' => 'textfield',
-					'#title' => t('Attribution'),
-					'#description' => t('Enter your attribution.'),
-					'#size' => 100,
-					'#maxlength' => 200,
-					'#default_value' => variable_get('author'),
+					'a' => array(
+						'#type' => 'textfield',
+						'#title' => t('Attribution'),
+						'#description' => t('Enter your attribution.'),
+						'#size' => 100,
+						'#maxlength' => 200,
+						'#default_value' => variable_get('author'),
+					),
 				),
 			);
 			break;
@@ -88,8 +87,8 @@ function quotator_block_configure($delta) {
 //Implements hook_block_save()
 
 function quotator_block_save($delta = 'myquote', $edit = array()) {
-	variable_set('deep_thoughts', $edit['quotable'][$q]);
-	variable_set('author', $edit['quotable'][$a]);
+	variable_set('deep_thoughts', $edit['quotable']['q']);
+	variable_set('author', $edit['quotable']['q']['a']);
 }
 
 
