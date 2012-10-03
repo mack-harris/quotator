@@ -87,14 +87,11 @@ function quotator_block_configure($delta) {
 
 function quotator_block_save($delta, $edit = array()) {
 	if($delta == 'myquote'){
-		if(isset($edit['quotable']['q'])){
-			variable_set('q', $edit['quotable']['q']);
-		}
-		if(isset($edit['quotable']['a'])){
-			variable_set('a', $edit['quotable']['a']);
-		}
+		variable_set('q', $edit['quotable']['q']);
+		variable_set('a', $edit['quotable']['a']);
 	}
 }
+
 
 
 //	variable_set('deep_thoughts', $edit['quotable']['q']);
