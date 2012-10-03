@@ -20,7 +20,7 @@ function quotator_block_view($delta) {
 		$author = variable_get('a');
 		$values = array('@quote' => $quote, '@author' => $author);
 		$block['subject'] = t('Quote of the Day');
-		$block['content'] = t('@quote, @author');
+		$block['content'] = t('@quote, @author', $values);
 	}
 	return $block;
 }
