@@ -17,10 +17,8 @@ function quotator_block_view($delta) {
 
 	switch ($delta){
 		case 'myquote':
-			$quotation = variable_get('deep_thoughts');
-			$author = variable_get('author');
 			$block['subject'] = t('Quote of the Day');
-			$block['content'] = t($quotation);
+			$block['content'] = t($quote);
 			break;
 		default:
 			break;
@@ -95,10 +93,10 @@ function quotator_block_save($delta = 'myquote', $edit = array()) {
 		if(isset($edit) ) {	
 		//do some validation, set global variables in the db
 			if(isset($edit['quotable']['q'])){
-				variable_set('q', $edit['quotable']['q']);
+				variable_set($quote, $edit['quotable']['q']);
 			}
 			if(isset($edit['quotable']['a'])){
-				variable_set('a', $edit['quotable']['a']);
+				variable_set($author, $edit['quotable']['a']);
 			}
 		}
 		//if the edit isn't being set, this should pop up an alert box.
