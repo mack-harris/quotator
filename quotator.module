@@ -17,8 +17,8 @@ function quotator_block_view($delta) {
 	$block = array();
 	switch ($delta){
 		case 'myquote':
-			$quote = variable_get('q',);
-			$author = variable_get('a',);
+			$quote = variable_get('q');
+			$author = variable_get('a');
 			$block['subject'] = t('Quote of the Day');
 			$block['content'] = t($quote);
 			break;
