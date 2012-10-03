@@ -18,8 +18,9 @@ function quotator_block_view($delta) {
 	if($delta == 'myquote'){
 		$quote = variable_get('q');
 		$author = variable_get('a');
+		$values = array('@quote' => $quote, '@author' => $author);
 		$block['subject'] = t('Quote of the Day');
-		$block['content'] = array($quote, $author);
+		$block['content'] = t('@quote, @author');
 	}
 	return $block;
 }
