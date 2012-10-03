@@ -13,8 +13,8 @@ function quotator_block_info() {
 
 //Implements hook_block_view
 function quotator_block_view($delta) {
-	variable_get($quote, 'q');
-	variable_get($author, 'a');
+	$quote = variable_get('q');
+	$author = variable_get('a');
 	$blocks = array();
 	switch ($delta){
 		case 'myquote':
