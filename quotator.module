@@ -13,8 +13,8 @@ function quotator_block_info() {
 
 //Implements hook_block_view
 function quotator_block_view($delta) {
-	$quote = variable_get('q');
-	$author = variable_get('a');
+	$quote = variable_get('q', $default = '');
+	$author = variable_get('a', $default = '');
 	$blocks = array();
 	switch ($delta){
 		case 'myquote':
@@ -68,7 +68,7 @@ function quotator_block_configure($delta) {
 					'#description' => t('Enter your quote.'),
 					'#size' => 100,
 					'#maxlength' => 200,
-					'#default_value' => variable_get('q'),
+					'#default_value' => variable_get('q', $default =''),
 				),
 				$form['quotable']['a'] = array(
 					'#type' => 'textfield',
@@ -76,7 +76,7 @@ function quotator_block_configure($delta) {
 					'#description' => t('Enter your attribution.'),
 					'#size' => 100,
 					'#maxlength' => 200,
-					'#default_value' => variable_get('a'),
+					'#default_value' => variable_get('a', $default = ''),
 				),
 				
 			);
@@ -99,10 +99,6 @@ function quotator_block_save($delta = 'myquote', $edit = array()) {
 			if(isset($edit['quotable']['a'])){
 				variable_set('a', $edit['quotable']['a']);
 			}
-		}
-		//if the edit isn't being set, this should pop up an alert box.
-		else{
-		 drupal_add_js('jQuery(document).ready(function () { alert("You broke it."); });', 'inline');
 		}
 	}
 }
