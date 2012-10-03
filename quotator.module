@@ -13,11 +13,12 @@ function quotator_block_info() {
 
 //Implements hook_block_view
 function quotator_block_view($delta) {
-	$quote = variable_get('q', $default = '');
-	$author = variable_get('a', $default = '');
+
 	$blocks = array();
 	switch ($delta){
 		case 'myquote':
+			$quote = variable_get('q', $default = '');
+			$author = variable_get('a', $default = '');
 			$block['subject'] = t('Quote of the Day');
 			$block['content'] = t($quote);
 			break;
@@ -60,7 +61,6 @@ function quotator_block_configure($delta) {
 				'#title' => t('Quotable'),
 				'#tree' => TRUE,
 				'#collapsible' => FALSE,
-
 
 				$form['quotable']['q'] = array(
 					'#type' => 'textfield',
