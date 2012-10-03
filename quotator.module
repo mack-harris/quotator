@@ -8,7 +8,7 @@ function quotator_block_info() {
 		'cache' => DRUPAL_CACHE_PER_ROLE,
 	);
 
-	return $blocks;
+	return $block;
 }
 
 //Implements hook_block_view
