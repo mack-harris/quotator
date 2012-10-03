@@ -65,7 +65,7 @@ function quotator_block_configure($delta) {
 					'#description' => t('Enter your quote.'),
 					'#size' => 100,
 					'#maxlength' => 200,
-					'#default_value' => variable_get('q', $default =''),
+					'#default_value' => variable_get('q'),
 				),
 				$form['quotable']['a'] = array(
 					'#type' => 'textfield',
@@ -73,7 +73,7 @@ function quotator_block_configure($delta) {
 					'#description' => t('Enter your attribution.'),
 					'#size' => 100,
 					'#maxlength' => 200,
-					'#default_value' => variable_get('a', $default = ''),
+					'#default_value' => variable_get('a'),
 				),
 				
 			);
