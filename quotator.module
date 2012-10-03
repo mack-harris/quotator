@@ -3,7 +3,7 @@
 
 //Implements hook_block_info
 function quotator_block_info() {
-	$blocks['myquote'] = array(
+	$block['myquote'] = array(
 		'info' => t('A Quote rotator.'),
 		'cache' => DRUPAL_CACHE_PER_ROLE,
 	);
@@ -14,7 +14,7 @@ function quotator_block_info() {
 //Implements hook_block_view
 function quotator_block_view($delta) {
 
-	$blocks = array();
+	$block = array();
 	switch ($delta){
 		case 'myquote':
 			/**$quote = variable_get('q', $default_text);
@@ -23,11 +23,11 @@ function quotator_block_view($delta) {
 			$block['content'] = t($quote);**/
 			$block['subject'] = t('A quote');
 			$block['content'] = t('A content.');
-
+			break;
 		default:
 			break;
 	}
-	return $blocks;
+	return $block;
 }
 
 /**function drupalmodule_block_configure($delta) {
