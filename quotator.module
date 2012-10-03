@@ -88,8 +88,8 @@ function quotator_block_configure($delta) {
 
 function quotator_block_save($delta, $edit = array()) {
 	if($delta == 'myquote'){
-		variable_set('q', $edit['quotable']['quote']);
-		variable_set('a', $edit['quotable']['author']);
+		variable_set('q', $edit['quotable']['quote']['q']);
+		variable_set('a', $edit['quotable']['author']['a']);
 	}
 }
 
