@@ -59,7 +59,7 @@ function quotator_block_configure($delta) {
 				'#tree' => TRUE,
 				'#collapsible' => FALSE,
 
-				$form['quotable']['q'] = array(
+				$form['quotable']['quote'] = array(
 					'#type' => 'textfield',
 					'#title' => t('Quote'),
 					'#description' => t('Enter your quote.'),
@@ -67,7 +67,7 @@ function quotator_block_configure($delta) {
 					'#maxlength' => 200,
 					'#default_value' => variable_get('q'),
 				),
-				$form['quotable']['a'] = array(
+				$form['quotable']['author'] = array(
 					'#type' => 'textfield',
 					'#title' => t('Attribution'),
 					'#description' => t('Enter your attribution.'),
@@ -87,8 +87,8 @@ function quotator_block_configure($delta) {
 
 function quotator_block_save($delta, $edit = array()) {
 	if($delta == 'myquote'){
-		variable_set('q', $edit['quotable']['q']);
-		variable_set('a', $edit['quotable']['a']);
+		variable_set('q', $edit['quotable']['quote']);
+		variable_set('a', $edit['quotable']['author']);
 	}
 }
 
