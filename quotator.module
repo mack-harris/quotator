@@ -17,8 +17,8 @@ function quotator_block_view($delta) {
 	$blocks = array();
 	switch ($delta){
 		case 'myquote':
-			$quote = variable_get('q', $default = '');
-			$author = variable_get('a', $default = '');
+			$quote = variable_get('q', $default_text);
+			$author = variable_get('a', $default_text);
 			$block['subject'] = t('Quote of the Day');
 			$block['content'] = t($quote);
 			break;
@@ -80,7 +80,6 @@ function quotator_block_configure($delta) {
 				),
 				
 			);
-			break;
 		default:
 			break;
 	}
@@ -89,7 +88,7 @@ function quotator_block_configure($delta) {
 
 //Implements hook_block_save()
 
-function quotator_block_save($delta = 'myquote', $edit = array()) {
+function quotator_block_save($delta, $edit = array()) {
 	if($delta == 'myquote'){
 		if(isset($edit) ) {	
 		//do some validation, set global variables in the db
